@@ -1,6 +1,7 @@
 export function BucketListItem(props) {
   return (
     <li
+      class="list-item"
       style={{
         "text-decoration": props.item.complete ? "line-through" : undefined,
       }}

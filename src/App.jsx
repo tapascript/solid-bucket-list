@@ -9,13 +9,15 @@ function App() {
   ]);
 
   return (
-    <div>
-      <ul>
+    <div class="container">
+      <h1>Solid Bucket List</h1>
+      <AddToBucket setItems={setItems} />
+      <ul class="list">
         <For each={items()}>
           {(item) => <BucketListItem item={item} setItems={setItems} />}
         </For>
       </ul>
-      <AddToBucket setItems={setItems} />
+      
     </div>
   );
 }

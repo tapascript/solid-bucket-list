@@ -6,6 +6,8 @@ export function AddToBucket(props) {
   return (
     <form>
       <input
+        type="text"
+        placeholder="Make a wish"
         value={newItem()}
         onChange={(e) => {
           setNewItem(e.target.value);
@@ -16,7 +18,7 @@ export function AddToBucket(props) {
         onClick={(e) => {
           e.preventDefault();
           props.setItems((items) => {
-            return [...items, { text: newItem(), complete: false }];
+            return [...items, { text: newItem(), complete: false }].reverse();
           });
           setNewItem('');
         }}
