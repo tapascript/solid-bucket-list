@@ -17,7 +17,7 @@ export function AddToBucket(props) {
                 type="submit"
                 onClick={(e) => {
                     e.preventDefault();
-                    if (e.target.value) {
+                    if (newItem()!=='') {
                         props.setItems((items) => {
                             return [
                                 ...items,
@@ -25,8 +25,9 @@ export function AddToBucket(props) {
                             ].reverse();
                         });
                         setNewItem("");
+                    } else {
+                        alert(`You can't submit empty value`);
                     }
-                    alert(`You can't submit empty value`)
                 }}>
                 Add
             </button>
