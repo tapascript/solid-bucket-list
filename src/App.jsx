@@ -2,11 +2,29 @@ import { createSignal } from 'solid-js';
 import { BucketListItem } from './BucketListItem';
 import { AddToBucket } from './AddToBucket';
 
+
+
+const dummy_Data = [
+  { text: 'Walk the dog', complete: false },
+  { text: 'Do homework', complete: true },
+]
+
+/**
+ *  return saved wishes data from local-storage.
+ *  if no data is saved to localstorage then return dummy data
+ */
+function getWishesFromLocalStorage(){
+
+  const wishes = JSON.parse(localStorage.getItem("solid-bucket-list"))
+    
+  if(!wishes) return dummy_Data
+    
+    return wishes
+
+}
+
 function App() {
-  const [items, setItems] = createSignal([
-    { text: 'Walk the dog', complete: false },
-    { text: 'Do homework', complete: true },
-  ]);
+  const [items, setItems] = createSignal(getWishesFromLocalStorage());
 
   return (
     <div class="container">
