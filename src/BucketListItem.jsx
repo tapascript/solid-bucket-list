@@ -3,11 +3,7 @@ import {Modal} from './Modal';
 
 export function BucketListItem(props) {
   const [isOpen, setIsOpen] = createSignal(false);
-
-  createEffect(()=>{
-    console.log(isOpen());
-  })
-
+  
   const handleDeleteItem = ()=>{
       props.setItems((items) => {
         const itemsWithoutTheDeletedOne = items.filter((item) =>
