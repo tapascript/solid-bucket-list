@@ -20,6 +20,12 @@ li{
   list-style: none;
 }
 
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -55,5 +61,62 @@ li{
   vertical-align: middle;
 }
 
+/* Modal  */
+.modal {
+  width: 100%;
+  max-width: 400px;
+  position: absolute;
+  padding: 2rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  height: 200px;
+  border: 2px dashed black;
+}
 
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
 
+.btn-close {
+  padding: .5rem 1rem;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-confirm {
+  background-color: limegreen;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  color: white;
+}
+
+.btn-reject {
+  background-color: crimson;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  color: white;
+}
+
+:is(.btn-confirm, .btn-reject):hover,
+:is(.btn-confirm, .btn-reject):focus {
+  transform: scale(1.1);
+}
