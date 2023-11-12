@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -61,21 +62,62 @@ button {
   vertical-align: middle;
 }
 
-/* Modal  */
-.modal {
-  width: 100%;
-  max-width: 400px;
-  position: absolute;
-  padding: 2rem 1.5rem;
+.list-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+}
+
+.list-item button {
+  margin-left: 1rem;
+  padding: .5rem 1rem;
+  transform: scale(.9);
+  background-color: crimson;
+  color: white;
+  font-weight: bold;
+  transition: all 100ms ease-in;
+}
+
+.list-item button:hover {
+  opacity: .8;
+  transform: scale(1.1);
+}
+
+/* Modal  */
+.modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background-color: rgba(1,1,1,.5);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+}
+
+.modal-dialog {
+  max-width: 400px;
+  min-width: 190px;
+  padding: 1rem;
   background-color: white;
-  height: 200px;
-  border: 2px dashed black;
+  height: auto;
+}
+
+.modal-body p {
+  font-size: .8rem;
+}
+
+@media only screen and (min-width: 500px) {
+  .modal-dialog {
+    padding: 2rem 1.5rem;
+    height: 205px;
+  }
+  
+  .modal-body p {
+    font-size: 1.5rem;
+  }
 }
 
 .modal-header {
@@ -114,6 +156,11 @@ button {
   font-weight: bold;
   padding: .5rem 1rem;
   color: white;
+}
+
+.btn-confirm, 
+.btn-reject {
+  transition: all 50ms ease-out;
 }
 
 :is(.btn-confirm, .btn-reject):hover,
