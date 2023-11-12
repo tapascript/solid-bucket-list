@@ -19,13 +19,13 @@ export function Modal(props) {
                       <button
                          type="button"
                          class="btn-confirm"
-                      onclick={()=> props.setConfirm(true)}>
+                      onclick={()=>props.handleDeleteItem()}>
                          Yes
                       </button>
                       <button 
                       type="button" 
                       class="btn-reject"
-                      onclick={()=> props.setConfirm(false)}>
+                      onclick={()=> props.setIsOpen(false)}>
                          No
                       </button>
                   </div>
