@@ -59,19 +59,17 @@ export function BucketListItem(props) {
         )}
       </label>
 
-      {/* Buttons */}
-      {isEditable() ? (
+      {/* save and cancel button */}
+      {isEditable() && (
         <div>
           <button onClick={bucketTextEdit}>Save</button>
           <button onClick={handleIsEditable}>Cancel</button>
         </div>
-      ) : (
-        <div>
-          {!props.item.complete && (
-            <button onClick={handleIsEditable}>Edit</button>
-          )}
-          <button>Delete</button>
-        </div>
+      )}
+
+      {/* Edit button */}
+      {!props.item.complete && !isEditable() && (
+        <button onClick={handleIsEditable}>Edit</button>
       )}
     </li>
   );
