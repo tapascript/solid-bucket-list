@@ -20,3 +20,7 @@ export function getWishes() {
 export function saveWish(wishes) {
   localStorage.setItem("solid-bucket-list", JSON.stringify(wishes));
 }
+
+export function setComplete(wishes) {
+  saveWish(wishes);
+}
