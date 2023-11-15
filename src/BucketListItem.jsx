@@ -2,15 +2,16 @@ import { saveWish } from "./util/localStorageUtil";
 
 export function BucketListItem(props) {
   return (
-    <li
-      class="list-item"
-      style={{
-        "text-decoration": props.item.complete ? "line-through" : undefined,
-      }}
-    >
-      <label>
+    <li>
+      <label
+        class="flex gap-2 items-center"
+        className={
+          props.item.complete ? "text-gray-400 line-through" : "text-gray-700"
+        }
+      >
         <input
           type="checkbox"
+          class="w-5 h-5"
           checked={props.item.complete}
           onChange={() => {
             props.setItems((items) => {
