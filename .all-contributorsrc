@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "msisaif",
+      "name": "MD SAIFUL ISLAM",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61042251?v=4",
+      "profile": "http://www.msisaif.com",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "solid-bucket-list",
+  "projectOwner": "tapascript"
+}
