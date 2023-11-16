@@ -2,11 +2,11 @@ import { createSignal } from "solid-js";
 import { BucketListItem } from "./BucketListItem";
 import { AddToBucket } from "./AddToBucket";
 
+import { getWishes } from "./util/localStorageUtil";
+
 function App() {
-  const [items, setItems] = createSignal([
-    { text: "Walk the dog", complete: false },
-    { text: "Do homework", complete: true },
-  ]);
+  const [items, setItems] = createSignal(getWishes());
+
 
   return (
     <div class="container flex flex-col justify-center items-center gap-4">
