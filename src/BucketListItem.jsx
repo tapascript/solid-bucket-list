@@ -1,4 +1,4 @@
-import { saveWish } from "./util/localStorageUtil";
+
 
 export function BucketListItem(props) {
   return (
@@ -21,7 +21,6 @@ export function BucketListItem(props) {
                 : item
               
               );
-              saveWish(newItems);
               return newItems;
             });
           }}
