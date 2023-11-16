@@ -18,7 +18,7 @@ export function AddToBucket(props) {
         onClick={(e) => {
           e.preventDefault();
           props.setItems((items) => {
-            return [...items, { text: newItem(), complete: false }].reverse();
+            return [...items, { text: newItem(), complete: false, delete: false }].reverse();
           });
           setNewItem('');
         }}

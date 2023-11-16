@@ -1,23 +1,14 @@
-import { createEffect, createSignal } from 'solid-js';
-import {Modal} from './Modal';
-
 export function BucketListItem(props) {
-  const [isOpen, setIsOpen] = createSignal(false);
-  
-  const handleDeleteItem = ()=>{
-      props.setItems((items) => {
-        const itemsWithoutTheDeletedOne = items.filter((item) =>
-          props.item !== item
-        );
-        return itemsWithoutTheDeletedOne;
-      });
-      setIsOpen(false);
-    }
+
+  const handleButtonClick = ()=>{
+    props.setItems((items)=>{
+      const newItems = items.map((item)=> props.item === item ? {...item, delete: !item.delete} : item);
+      return newItems;
+    });
+  }
 
   return (
     <>
-    {isOpen() && <Modal text='Are you sure? You want to delete this! 😕' setIsOpen={setIsOpen} handleDeleteItem={handleDeleteItem} />}
-
     <li
       class="list-item"
       style={{
@@ -41,8 +32,8 @@ export function BucketListItem(props) {
         />
         {props.item.text}
       </label>
-      <button type="button" onclick={()=> setIsOpen(true)}>
-        X
+      <button type="button" onClick={handleButtonClick}>
+        <span>{props.item.delete ? 'X' : ''}</span>
       </button>
     </li>
     </>
