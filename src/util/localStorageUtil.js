@@ -11,9 +11,6 @@ export function getWishes() {
   const wishes = JSON.parse(localStorage.getItem("solid-bucket-list"));
 
   return wishes ? wishes : dummy_Data;
-  //   if (!wishes) return dummy_Data;
-
-  //   return wishes;
 }
 
 //  Save new wish to localstorage
