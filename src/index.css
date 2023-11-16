@@ -36,6 +36,10 @@ button {
 
 .container .list{
   font-size: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .container form input[type="text"] {
@@ -64,24 +68,66 @@ button {
 
 .list-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .list-item button {
   margin-left: 1rem;
-  padding: .5rem 1rem;
-  transform: scale(.9);
+  outline: 2px solid crimson;
+  background-color: transparent;
+  width: 25px;
+  aspect-ratio: 1/ 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item button span {
+  color: crimson;
+  font-weight: bolder;
+  transition: all 100ms ease-in;
+  width: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  font-size: 1.2rem;
+}
+
+/* delete-items-wrapper */
+.delete-items-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.delete-item-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item-text,
+.item-count-number {
+  font-weight: bold;
+}
+
+.btn-delete {
   background-color: crimson;
   color: white;
   font-weight: bold;
-  transition: all 100ms ease-in;
+  padding: .5rem 1rem;
+  border-radius: 8px;
 }
 
-.list-item button:hover {
-  opacity: .8;
-  transform: scale(1.1);
+.btn-delete:hover {
+  background-color: red;
 }
+
 
 /* Modal  */
 .modal {
@@ -112,7 +158,6 @@ button {
 @media only screen and (min-width: 500px) {
   .modal-dialog {
     padding: 2rem 1.5rem;
-    height: 205px;
   }
   
   .modal-body p {
