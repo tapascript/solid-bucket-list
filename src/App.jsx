@@ -1,11 +1,9 @@
-import { createSignal } from "solid-js";
 import { BucketListItem } from "./BucketListItem";
 import { AddToBucket } from "./AddToBucket";
-
-import { getWishes } from "./util/localStorageUtil";
+import useBucketList from "./hooks/useBucketList";
 
 function App() {
-  const [items, setItems] = createSignal(getWishes());
+  const [items, setItems] = useBucketList();
 
 
   return (
