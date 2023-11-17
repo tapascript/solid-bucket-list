@@ -27,6 +27,7 @@ export function AddToBucket(props) {
                 id: crypto.randomUUID(),
                 text: newItem(),
                 complete: false,
+                delete: false,
               },
               ...items,
             ];
