@@ -1,47 +1,45 @@
-import { createSignal } from 'solid-js';
-import { BucketListItem } from './BucketListItem';
-import { AddToBucket } from './AddToBucket';
+import { createSignal } from "solid-js";
+import { BucketListItem } from "./BucketListItem";
+import { AddToBucket } from "./AddToBucket";
 import Modal from './Modal';
 
+import { getWishes, saveWish } from "./util/localStorageUtil";
+
 function App() {
-   const [items, setItems] = createSignal([
-      { text: 'Walk the dog', complete: false, delete: false },
-      { text: 'Do homework', complete: true, delete: false },
-   ]);
+  const [items, setItems] = createSignal(getWishes());
+  const [isOpen, setIsOpen] = createSignal(false);
 
-   const [isOpen, setIsOpen] = createSignal(false);
+  const handleOneOrMoreDeleteItem = () => {
+     setItems((items) => {
+        const ItemsWithoutTheDeletedOnes = items.filter(
+           (item) => item.delete === false
+        );
+        saveWish(ItemsWithoutTheDeletedOnes);
+        return ItemsWithoutTheDeletedOnes;
+     });
+  };
 
-   const handleOneOrMoreDeleteItem = () => {
-      console.log(`working`);
-      setItems((items) => {
-         const ItemsWithoutTheDeletedOnes = items.filter(
-            (item) => item.delete === false
-         );
-         console.log(ItemsWithoutTheDeletedOnes);
-         return ItemsWithoutTheDeletedOnes;
-      });
-   };
+  const noOfItemsToBeDeleted = () => {
+     const itemsToBeDeleted = items().filter((item) => item.delete);
+     return itemsToBeDeleted.length;
+  };
 
-   const noOfItemToBeDeleted = () => {
-      const itemsToBeDeleted = items().filter((item) => item.delete);
-      return itemsToBeDeleted.length;
-   };
 
-   return (
-      <div class="container">
-         <h1>Solid Bucket List</h1>
-         <AddToBucket setItems={setItems} />
-         <div class="delete-items-wrapper">
-            <p class="delete-item-count">
-               <span class="item-text">No of items to be deleted</span>
-               <span class="item-count-number">{noOfItemToBeDeleted()}</span>
+  return (
+    <div class="container flex flex-col justify-center items-center gap-4">
+      <h1 class="text-4xl font-bold">Solid Bucket List</h1>
+      <AddToBucket setItems={setItems} />
+      <div class="flex justify-center sm:justify-between items-center flex-wrap gap-6">
+            <p class="flex justify-center items-center flex-col">
+               <span class="font-bold">No of items to be deleted</span>
+               <span class="font-bold">{noOfItemsToBeDeleted()}</span>
             </p>
             <button
                type="button"
-               class="btn-delete"
+               class="bg-[crimson] text-white py-2 px-4 rounded-lg font-bold text-center cursor-pointer hover:bg-red-500"
                onclick={() => setIsOpen(true)}
             >
-               {noOfItemToBeDeleted() > 1 ? 'Delete All' : 'Delete'}
+               {noOfItemsToBeDeleted() > 1 ? 'Delete All' : 'Delete'}
             </button>
          </div>
 
@@ -49,24 +47,24 @@ function App() {
             <Modal
                title="Delete Confirmation"
                text={
-                  noOfItemToBeDeleted() === 0
+                  noOfItemsToBeDeleted() === 0
                      ? `You haven't selected any item 😕`
                      : `Are you sure? You want to delete ${
-                          noOfItemToBeDeleted() > 1 ? 'those' : 'this'
+                          noOfItemsToBeDeleted() > 1 ? 'those' : 'this'
                        }! 😕`
                }
                setIsOpen={setIsOpen}
                handleOneOrMoreDeleteItem={handleOneOrMoreDeleteItem}
-               noOfItemToBeDeleted={noOfItemToBeDeleted}
+               noOfItemsToBeDeleted={noOfItemsToBeDeleted}
             />
          )}
-         <ul class="list">
-            <For each={items()}>
-               {(item) => <BucketListItem item={item} setItems={setItems} />}
-            </For>
-         </ul>
-      </div>
-   );
+      <ul class="text-2xl">
+        <For each={items()}>
+          {(item) => <BucketListItem item={item} setItems={setItems} />}
+        </For>
+      </ul>
+    </div>
+  );
 }
 
 export default App;

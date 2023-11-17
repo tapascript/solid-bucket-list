@@ -1,0 +1,44 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "msisaif",
+      "name": "MD SAIFUL ISLAM",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61042251?v=4",
+      "profile": "http://www.msisaif.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Eth3R-One",
+      "name": "Refayth Hossian",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61708253?v=4",
+      "profile": "https://refayth.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "atapas",
+      "name": "Tapas Adhikary",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3633137?v=4",
+      "profile": "https://tapasadhikary.com",
+      "contributions": [
+        "infra"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "solid-bucket-list",
+  "projectOwner": "tapascript"
+}
