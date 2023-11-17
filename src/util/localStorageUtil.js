@@ -1,6 +1,18 @@
 const dummy_Data = [
-  { id: crypto.randomUUID(), text: "Walk the dog", complete: false },
-  { id: crypto.randomUUID(), text: "Do homework", complete: true },
+  {
+    id: crypto.randomUUID(),
+    text: "Walk the dog",
+    complete: false,
+    createdAt: null,
+    deadline: new Date().setMinutes(new Date().getMinutes() + 10),
+  },
+  {
+    id: crypto.randomUUID(),
+    text: "Do homework",
+    complete: true,
+    createdAt: null,
+    deadline: null,
+  },
 ];
 
 /**
