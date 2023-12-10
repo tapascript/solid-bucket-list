@@ -19,6 +19,7 @@ export function AddToBucket(props) {
       <button
         type="submit"
         class="px-3 py-1.5 text-xl rounded-md bg-blue-600 text-white"
+        disabled={newItem().length < 2}
         onClick={(e) => {
           e.preventDefault();
           props.setItems((items) => {
